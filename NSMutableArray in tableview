@@ -1,0 +1,92 @@
+
+import UIKit
+
+class ViewController: UIViewController,UITextFieldDelegate {
+
+    
+
+    @IBOutlet weak var txtFldName: UITextField!
+    @IBOutlet weak var tblView: UITableView!
+    var nameArr = NSMutableArray()
+
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
+    }
+
+    @IBAction func addActionBtn(_ sender: Any) {
+       insertyestitle()
+        
+    }
+   
+    
+    func insertyestitle(){
+        
+        nameArr.add(txtFldName.text!)
+    
+        let indexPath = IndexPath(row: nameArr.count-1,section: 0)
+        tblView.beginUpdates()
+        tblView.insertRows(at: [indexPath], with: .automatic)
+        tblView.endUpdates()
+        txtFldName.text = ""
+        view.endEditing(true)
+    }
+}
+
+
+extension ViewController: UITableViewDelegate ,UITableViewDataSource {
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return nameArr.count
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let yesTitle = nameArr[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+        
+        cell.nameLbl.text = yesTitle as? String
+        cell.updateBtn.tag = indexPath.row
+        cell.updateBtn.addTarget(self, action: #selector(updateBtnClicked(sender:)),for: .touchUpInside)
+        return cell
+    }
+    
+    
+    @objc func updateBtnClicked(sender:UIButton){
+        nameArr.replaceObject(at: sender.tag, with: txtFldName.text!)
+        txtFldName.text = ""
+        tblView.reloadData()
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            nameArr.removeObject(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }else if editingStyle == .insert {
+        }
+    }
+    
+    
+    
+    func tableview(_tableView:UITableView,didSelectRowAt indexPath: IndexPath){
+        let yesTitle = nameArr[indexPath.row]
+        
+       txtFldName.text = yesTitle as! String
+    print("Your are in selected")
+        txtFldName.text = "heelow"
+        view.endEditing(true)
+    }
+    
+    
+    
+}
+
+
+
