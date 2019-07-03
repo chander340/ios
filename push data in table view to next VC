@@ -1,0 +1,45 @@
+import UIKit
+class ViewController1: UIViewController,UITableViewDataSource,UITableViewDelegate {
+
+    var arr1 = ["A","B","C"]
+    var arr2 = ["A","B","C"]
+  
+    @IBOutlet weak var tblViewwww: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tblViewwww.delegate = self
+        tblViewwww.dataSource = self
+        
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arr1.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell2") as! TableViewCell2
+        cell.lblNamee.text = arr1[indexPath.row]
+        let img  = UIImage(named: arr2[indexPath.row])
+        cell.imageViewLine.image = img
+        return cell
+    }
+    
+    func tableView (_ tableView: UITableView, heightForRowAt indexpath: IndexPath) -> CGFloat{
+    return 300
+}
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        let viewC = storyboard?.instantiateViewController(withIdentifier: "ViewController2") as! ViewController2
+        
+        viewC.getName = arr1[indexPath.row]
+    
+        viewC.getImage = UIImage(named:arr2 [indexPath.row])!
+        
+        self.navigationController?.pushViewController( viewC, animated: true)
+    }
+    
+    }
+table view .....image view...label
+
