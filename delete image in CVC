@@ -1,0 +1,40 @@
+import UIKit
+class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource {
+
+    var imgArr = ["1","2","3","4"]
+
+
+    @IBOutlet weak var collView: UICollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+}
+
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imgArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath)
+        as! CollectionViewCell
+        
+        cell.crossBtn.tag = indexPath.row
+        cell.crossBtn.addTarget(self, action: #selector(crossBtnAction(sender:)), for: .touchUpInside)
+        
+   let img = UIImage(named: imgArr[indexPath.row])
+        cell.imgView?.image = img
+        return cell
+        
+        
+    }
+    
+    @objc func crossBtnAction(sender:UIButton){
+        imgArr.remove(at: sender.tag)
+            collView.reloadData()
+}
+    }
+    
+Take a image view or cross button in collection view cell
