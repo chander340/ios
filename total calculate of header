@@ -1,0 +1,76 @@
+import UIKit
+
+class ViewController: UIViewController {
+    let sections
+        = ["Pizza","Vegetables"]
+    let dataArr = [
+    ["Grapes","Orange","Lichi"],
+    ["Grapes","Orange","Lichi"]
+    ]
+    var priceArr = [
+        [20,30,40], [10,37,1005]
+    ]
+    var price : Int?
+    
+
+    
+    @IBOutlet weak var myTableView: UITableView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        myTableView.delegate = self
+        myTableView.dataSource = self
+}
+}
+
+extension ViewController: UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+
+
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return dataArr[section].count
+}
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell1", for: indexPath) as! TableViewCell1
+   // cell.textLabel?.text = self.sections[indexPath.row]
+    cell.productName?.text = dataArr[indexPath.section][indexPath.row]
+    //cell.productPrice?.text = priceArr[]
+    cell.productPrice.text = String(priceArr[indexPath.section][indexPath.row])
+    return cell
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section]
+    }
+
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+     price = 0
+        var ab = 0
+        if self.sections[section] == "Pizza"{
+            for i in 0..<1{
+                for j in 0..<3{
+                 price = ab  + priceArr[i][j]
+                    ab = price! + 0
+                }
+            }
+        }
+        else{
+            for i in 1..<2{
+                for j in 0..<3{
+                        price = ab + priceArr[i][j]
+                    ab = price! + 0
+                }
+            }
+        }
+        return "Total" + String(describing:price)
+    
+    }
+
+
+}
