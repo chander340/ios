@@ -1,0 +1,152 @@
+import UIKit
+class ViewController: UIViewController,UITextFieldDelegate {
+
+    @IBOutlet weak var tblView: UITableView!
+    @IBOutlet weak var txtFld: UITextField!
+    @IBOutlet weak var txtFld2: UITextField!
+    var startDateArr = NSMutableArray()
+    var endDateArr = NSMutableArray()
+    
+  
+    //let anf = TableCellVC()
+
+    
+    
+    
+    
+    private var datePicker : UIDatePicker?
+    private var datePicker2 : UIDatePicker?
+        override func viewDidLoad() {
+        super.viewDidLoad()
+ // 00 data changd
+        datePicker = UIDatePicker()
+        datePicker?
+            .datePickerMode = .date
+            datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+     //00 data changed
+            datePicker2 = UIDatePicker()
+            datePicker2?
+                .datePickerMode = .date
+            datePicker2?.addTarget(self, action: #selector(ViewController.dateChanged2(datePicker2:)), for: .valueChanged)
+         
+            
+            
+      let tapGesture = UITapGestureRecognizer(target:self  , action: #selector(ViewController.viewTapped(gestureRecognizer:)) )
+        
+        view.addGestureRecognizer(tapGesture)
+        
+        txtFld.inputView = datePicker
+        datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: 15, to: Date())
+        datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value  : -15 , to: Date())
+        
+            
+            let tapGesture2 = UITapGestureRecognizer(target:self  , action: #selector(ViewController.viewTapped2(gestureRecognizer:)) )
+            
+            view.addGestureRecognizer(tapGesture2)
+            
+            txtFld2.inputView = datePicker2
+            datePicker2?.maximumDate = Calendar.current.date(byAdding: .year, value: 15, to: Date())
+            datePicker2?.minimumDate = Calendar.current.date(byAdding: .year, value  : -15 , to: Date())
+            }
+    
+    
+    
+    @IBAction func addBtn(_ sender: Any) {
+        addNewCell()
+        }
+    func addNewCell() {
+        startDateArr.add(txtFld.text!)
+        endDateArr.add(txtFld2.text!)
+    
+        let indexPath = IndexPath(row: startDateArr.count - 1,section:0)
+        tblView.beginUpdates()
+        tblView.insertRows(at: [indexPath], with: .automatic)
+        tblView.endUpdates()
+        txtFld.text = ""
+        txtFld2.text = ""
+        view.endEditing(true)
+        
+    }
+   
+    
+    
+    //00
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE,dd,MMMM,yyyy"
+
+        txtFld.text = dateFormatter.string(from:datePicker.date)
+        
+        view.endEditing(true)
+        }
+   //1
+    @objc func dateChanged2(datePicker2: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE,dd,MMMM,yyyy"
+        
+        txtFld2.text = dateFormatter.string(from:(datePicker2.date))
+        
+        view.endEditing(true)
+    }
+    
+    @objc func viewTapped(gestureRecognizer : UITapGestureRecognizer){
+        func dateChanged(datePicker:UIDatePicker){
+   
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy"
+            txtFld.text = dateFormatter.string(from:(datePicker2?.date)!)
+        
+            view.endEditing(true)
+       
+    }
+    }
+        @objc func viewTapped2(gestureRecognizer : UITapGestureRecognizer){
+            func dateChanged2(datePicker:UIDatePicker){
+                
+                let dateFormatter1 = DateFormatter()
+                dateFormatter1.dateFormat = "MM/dd/yy"
+                txtFld2.text = dateFormatter1.string(from:(datePicker2?.date)!)
+                
+                view.endEditing(true)
+                
+            }
+        }
+
+ 
+    }
+
+extension ViewController : UITableViewDelegate,UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return startDateArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let newCell = startDateArr[indexPath.row]
+        let newCell2 = endDateArr[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TableCellVC", for: indexPath) as! TableCellVC
+        cell.startLbl.text = newCell as? String
+        cell.endLbl.text = newCell2 as? String
+        
+        
+        
+        return cell
+    
+    }
+    
+    
+}
+
+
+
+// date pickee 2 set start text label
+// tabel view 
+// 2 text label
+
+
+
+
+
+
