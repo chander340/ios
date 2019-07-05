@@ -1,0 +1,26 @@
+import UIKit
+
+class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+  
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    let colors = [["red","green","black","yellow","pink"],
+    ["a", "b", "c", "d"],
+    ["!", "#", "$", "#"],
+    ["w", "x", "y", "z"]]
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 4
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return colors.count
+    }
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return colors[component][row]
+}
+
+}
