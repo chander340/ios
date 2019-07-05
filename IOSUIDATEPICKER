@@ -1,0 +1,91 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var myDatePicker: UIDatePicker!
+    @IBOutlet weak var labelTwo: UILabel!
+    @IBOutlet weak var labelOne: UILabel!
+    @IBOutlet weak var myTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
+    @IBAction func dateMode(_ sender: Any) {
+        
+        datePicker.datePickerMode =  .date
+    }
+    
+    @IBAction func timeMode(_ sender: Any) {
+    datePicker.datePickerMode =  .time
+    
+    }
+    
+    
+    @IBAction func countdownMode(_ sender: Any) {
+        datePicker.datePickerMode =  .countDownTimer
+        
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        myDatePicker.addTarget(self, action: #selector(ViewController.datePickerValueChanged(_:)), for: .valueChanged)
+        createDatePicker()
+        createToolbar()
+    }
+    
+    func createDatePicker()
+    {
+        
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.backgroundColor = .white
+        datePicker.minuteInterval = 30
+        datePicker.setValue(UIColor.brown, forKey: "textColor")
+        myTextField.inputView = datePicker
+        
+    }
+    
+    func createToolbar()
+    {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(ViewController.doneClick))
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        myTextField.inputAccessoryView = toolBar
+        
+    }
+    
+    @objc func doneClick() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        myTextField.text = dateFormatter.string(from: datePicker.date)
+        myTextField.resignFirstResponder()
+    }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker){
+        
+        // Create date formatter
+        let dateFormatter: DateFormatter = DateFormatter()
+        
+        // Set date format
+        dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+        
+        // Apply date format
+        let selectedDate: String = dateFormatter.string(from: sender.date)
+        
+        //print("Selected value \(selectedDate)")
+        labelOne.text = selectedDate
+    
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            labelTwo.text = "Day: \(day) Month: \(month) Year: \(year)"
+        }
+    
+    }
+
+
+}
+
+//datepicker......text filed.....two labels.....a stack view in this three btns datepicker,time picker,countdown picker
