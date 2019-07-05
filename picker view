@@ -1,0 +1,35 @@
+import UIKit
+
+class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+ 
+
+    @IBOutlet var labelFruit: UILabel!
+    @IBOutlet var pickerView: UIPickerView!
+    
+    var arrayFruits = [String]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        arrayFruits = ["Apple","Banana","Orange","Grapes","Watermelon"]
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrayFruits.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrayFruits[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.labelFruit.text = arrayFruits[row]
+    }
+    }
+    
+//pickerview with label
+
+
+
