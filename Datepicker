@@ -1,0 +1,21 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var dateLabel: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    @IBAction func datePIickerChanged(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        let strDate = dateFormatter.string(from: datePicker.date)
+        dateLabel.text = strDate
+    }
+    }
+    
+///datepicker.....label
