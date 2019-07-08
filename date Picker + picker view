@@ -1,0 +1,105 @@
+
+
+import UIKit
+
+class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+   var checkDate = Int()
+    var rohit = String()
+var startSelectedDate = Date()
+    @IBOutlet weak var endLbl: UILabel!
+    @IBOutlet weak var strtLbl: UILabel!
+    @IBOutlet weak var countriesLbl: UILabel!
+    @IBOutlet weak var citiesLbl: UILabel!
+    @IBOutlet weak var myPickerView: UIPickerView!
+    @IBOutlet weak var showDatePicker: UIDatePicker!
+    let countries = [["India","Australia","Canada","America"],
+                     ["Mumbai","Sydney","Vancouver","New York"]]
+    var check : Int = 0
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        myPickerView.isHidden = true
+       showDatePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: 100, to: Date())
+        showDatePicker?.minimumDate = Date()
+     }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            if check == 1 {
+            return countries[0].count
+            }
+            else{
+            return countries[1].count
+            }
+            }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if check == 1 {
+            return countries[0][row]
+        }
+        else{
+            return countries[1][row]
+        }
+        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if check == 1 {
+            countriesLbl.text = countries[0][row]
+            }else{
+            citiesLbl.text = countries[1][row]
+        }
+    }
+    @IBAction func countryValues(_ sender: Any) {
+        check = 1
+        myPickerView.reloadAllComponents()
+        myPickerView.isHidden = false
+    }
+    @IBAction func citiesBtn(_ sender: Any) {
+        check = 0
+        myPickerView.reloadAllComponents()
+        myPickerView.isHidden = false
+    }
+    @IBAction func startDate(_ sender: Any) {
+       showDatePicker.isHidden = false
+       }
+    
+    @IBAction func strDate(_ sender: Any) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        rohit =  dateFormatter.string(from: showDatePicker.date)
+        if (checkDate == 0){
+            startSelectedDate = showDatePicker.date
+            strtLbl.text = rohit
+        } else{
+            strtLbl.text = rohit
+        }
+       
+    }
+    @IBAction func endDate(_ sender: Any) {
+       
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        rohit =  dateFormatter.string(from: showDatePicker.date)
+        if (checkDate == 0){
+            startSelectedDate = showDatePicker.date
+            endLbl.text = rohit
+        } else{
+             endLbl.text = rohit
+        }
+       
+        
+    }
+    @IBAction func endDate2(_ sender: Any) {
+         showDatePicker.isHidden = false
+        showDatePicker.minimumDate = startSelectedDate
+    }
+   
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+       
+    }
+
+
+}
+// 2 button country city label ,, lable ,, pickreb. view,,, start date or end date ,, date picker,, 2 label for that
+
