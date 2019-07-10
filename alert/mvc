@@ -1,0 +1,57 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    @IBOutlet var txtFldFather: UITextField!
+    @IBOutlet var txtFldName: UITextField!
+    
+    
+        override func viewDidLoad() {
+        super.viewDidLoad()
+     
+    }
+
+           @IBAction func addBtn(_ sender: Any) {
+            if txtFldName.text == ""{
+            let alert =  UIAlertView()
+            alert.title = "Enter your name"
+            alert.addButton(withTitle: "okk")
+            alert.show()
+   }else{
+            if txtFldFather.text == ""{
+                let alert2 =  UIAlertView ()
+                alert2.title = "Enter your Email"
+                alert2.addButton(withTitle: "okk")
+                alert2.show()
+                
+  }else if txtFldFather.text != ""{
+                let abc = txtFldFather.text
+                let alert2 = UIAlertView()
+                let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+                let validate  =  NSPredicate(format:"SELF MATCHES %@", emailFormat)
+                if validate.evaluate(with: abc){
+                let alert2 = UIAlertView()
+                    alert2.title = "Valid Email"
+                    alert2.addButton(withTitle: "Ok")
+                   } else {
+                alert2.title = "Invalid Email"
+                alert2.addButton(withTitle: "okk")
+                alert2.show()
+        }
+        }
+        }
+        objUserModel.nameVal = txtFldName.text!
+        objUserModel.namePass = txtFldFather.text!
+        let abcd = self.storyboard?.instantiateViewController(withIdentifier: "DetailVCViewController") as! DetailVCViewController
+        self.navigationController?.pushViewController(abcd, animated: true)
+        }
+        }
+extension ViewController : UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentCharacterCount = txtFldName.text else {return true}
+        print("ih you in")
+        let namelength = currentCharacterCount.count + string.count - range.length
+        return namelength <= 10
+
+    }
+}
