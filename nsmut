@@ -1,0 +1,72 @@
+import UIKit
+class ViewController: UIViewController,UITextFieldDelegate {
+    
+ 
+    @IBOutlet weak var txtFldAdd: UITextField!
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var nameArr = NSMutableArray()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.register(UITableViewCell.self,forCellReuseIdentifier: "Cell")
+    }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        insertNewName()
+        }
+    
+    @IBAction func updateBtn(_ sender: Any) {
+        nameArr.replaceObject(at: 1, with: "PQR")
+      
+        
+    }
+    
+    func insertNewName() {
+        nameArr.add(txtFldAdd.text!)
+        let indexPath = IndexPath(row: nameArr.count-1,section:0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        txtFldAdd.text = ""
+        view.endEditing(true)
+    }
+    
+}
+    
+    extension ViewController: UITableViewDelegate,UITableViewDataSource {
+       
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return nameArr.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            
+            let videoTitle = nameArr[indexPath.row]
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+          
+            cell.lblName.text = videoTitle as? String
+            
+            return cell
+        }
+       
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete{
+                nameArr.removeObject(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+          
+            } else if editingStyle == .insert {
+            }
+            
+            func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+               
+                nameArr.replaceObject(at: indexPath.row, with: "PQR")
+            }
+            }
+
+}
+
