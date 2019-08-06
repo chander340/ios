@@ -1,0 +1,6 @@
+framework module Pods_FetchData {
+  umbrella header "Pods-FetchData-umbrella.h"
+
+  export *
+  module * { export * }
+}
