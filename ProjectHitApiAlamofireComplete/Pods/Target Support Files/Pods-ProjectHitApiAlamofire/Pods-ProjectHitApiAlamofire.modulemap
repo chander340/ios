@@ -1,0 +1,6 @@
+framework module Pods_ProjectHitApiAlamofire {
+  umbrella header "Pods-ProjectHitApiAlamofire-umbrella.h"
+
+  export *
+  module * { export * }
+}
