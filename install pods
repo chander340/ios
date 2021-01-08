@@ -7,3 +7,7 @@ pod init
 open -a Xcode Podfile
 copy pods from https://cocoapods.org/?q=Afnet
 pod install
+
+
+
+ pod install --no-repo-update
