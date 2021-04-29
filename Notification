@@ -1,0 +1,16 @@
+Step :- 1 
+NotificationCenter.default.addObserver(self, selector: #selector(getReload(notification:)), name: .reloadTableInside , object: nil)
+
+Step :- 2 
+
+@objc func getReload(notification: Notification){
+    }
+
+Step:- 3
+extension Notification.Name{
+    static let reloadTableInside = Notification.Name("CurrentId")
+}
+
+Step:- 4 
+
+NotificationCenter.default.post(name : .reloadTableInside ,object : nil) 
