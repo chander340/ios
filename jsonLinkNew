@@ -1,187 +1,99 @@
 {
     "status": true,
     "statusCode": 200,
-    "message": "skills Fetched",
+    "message": "Profile Details Fetched Successfully",
     "result": [
         {
-            "_id": "5f53e1a011dad27cc419e43d",
-            "name": "Vedic Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
+            "isFollowing": false
         },
         {
-            "_id": "5f53e1a011dad27cc419e440",
-            "name": "Vastu",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e441",
-            "name": "Gemology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e442",
-            "name": "Prashana Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e443",
-            "name": "KP Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e444",
-            "name": "Lal Kitab",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e445",
-            "name": "Western Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e446",
-            "name": "Tarot Reading",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e447",
-            "name": "Palmistry",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e448",
-            "name": "KB Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e449",
-            "name": "Mobile Numerology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44a",
-            "name": "Corporate Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44b",
-            "name": "Medical Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44c",
-            "name": "Progeny Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44d",
-            "name": "Horary",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44e",
-            "name": "Face Reading",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e44f",
-            "name": "Psychic Reader",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e450",
-            "name": "Spiritual Life",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e451",
-            "name": "Vedic Navgrah",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e452",
-            "name": "Navgrha Akshat",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e453",
-            "name": "Mystic Healer",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e454",
-            "name": "Diet Chart",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e455",
-            "name": "Share Market",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e456",
-            "name": "Signature Reading",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e457",
-            "name": "Prashna Kundali",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e458",
-            "name": "Pythagorean Numerology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e45a",
-            "name": "Ramal Card",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e459",
-            "name": "Runestone Reading",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e43f",
-            "name": "Numerology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
-        },
-        {
-            "_id": "5f53e1a011dad27cc419e43e",
-            "name": "Nadi Astrology",
-            "__v": 0,
-            "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
+            "astro_data": [
+                {
+                    "isActive": false,
+                    "isVerified": false,
+                    "availability_status": true,
+                    "follower_count": 0,
+                    "_id": "60e2ade1dc35880c8becd6d0",
+                    "firstName": "shubham",
+                    "lastName": "kaundal",
+                    "profile": {
+                        "mobiles": [
+                            "9501058880"
+                        ],
+                        "emails": [
+                            "shubhamkaundal.appcrunk@gmail.com"
+                        ],
+                        "gender": 0,
+                        "avatar": "",
+                        "skills": [
+                            {
+                                "_id": "5f53e1a011dad27cc419e440",
+                                "name": "Vastu",
+                                "__v": 0,
+                                "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
+                            },
+                            {
+                                "_id": "5f53e1a011dad27cc419e440",
+                                "name": "Vastu",
+                                "__v": 0,
+                                "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
+                            },
+                            {
+                                "_id": "5f53e1a011dad27cc419e441",
+                                "name": "Gemology",
+                                "__v": 0,
+                                "image_url": "https://astrochatstrapi.s3.ap-south-1.amazonaws.com/Untitled-1.png"
+                            }
+                        ],
+                        "expertise": [
+                            {
+                                "_id": "60d0758eeba860660bbfd3ef",
+                                "expertise": "Love",
+                                "__v": 0
+                            },
+                            {
+                                "_id": "60d55c4721042d63651d059b",
+                                "expertise": "Numerology",
+                                "__v": 0
+                            },
+                            {
+                                "_id": "60d55c3221042d63651d059a",
+                                "expertise": "Vastu",
+                                "__v": 0
+                            }
+                        ],
+                        "languages": [],
+                        "videoRatePerSecond": 0
+                    },
+                    "role": "Professional",
+                    "indian": true,
+                    "userName": "shubhamkaundal.appcrunk@gmail.com",
+                    "posts": [
+                        {
+                            "_id": "60e3d4ae7571681d29e46734",
+                            "message": "This is my first post",
+                            "post_media_url": "",
+                            "createdAt": "2021-07-06T03:57:34.082Z"
+                        },
+                        {
+                            "_id": "60e3d5417571681d29e46735",
+                            "message": "This is my second post",
+                            "post_media_url": "https://astropersistentdata.s3.amazonaws.com/6efa2790-5bc3-4e71-b85d-8388cdfcd8d8.jpg",
+                            "createdAt": "2021-07-06T04:00:01.514Z"
+                        }
+                    ],
+                    "gallery": [],
+                    "ratings": [],
+                    "createdAt": "2021-07-05T06:59:45.558Z",
+                    "__v": 0,
+                    "availability_medium": {
+                        "call": 1,
+                        "chat": 1,
+                        "video": 1
+                    },
+                    "id": "60e2ade1dc35880c8becd6d0"
+                }
+            ]
         }
     ]
 }
